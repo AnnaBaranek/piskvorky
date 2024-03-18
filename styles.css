@@ -1,0 +1,80 @@
+h1 {
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  body {
+    background-image: linear-gradient(#615dad, #ffc8da);
+}
+
+.card {
+    width: 364px;
+    /* height: 615px;  toto mi nici pozadi*/
+   
+    margin: 0 auto;
+    min-height: 100%;
+  }
+
+  
+img {
+    max-width: 100%;
+    border-radius: 5px 5px 0 0;
+    display: block;
+}
+
+.card__info {
+    background-color: #283e50;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    height: 292px;
+}
+
+.card__title {
+    font-size: 40px;
+}
+
+.card__text {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 16px;
+    margin-top: 0;
+    }
+
+.card__rules {
+    background-color: #1fcca4;
+    border-bottom: #283e50 1px;
+}
+
+.card__rules:hover {
+    background-color: #1cbb96;
+}
+
+.card__play {
+    background-color: #0197f6;
+    border-top: solid 1px;
+    border-color: #283e50;
+}
+
+.card__play:hover {
+    background-color: #0090e9;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 52px; 
+    font-family: 'Times New Roman', Times, serif;
+}
+
+a {
+     text-decoration: none;  
+     color: #ffffff;
+     font-family: Arial, Helvetica, sans-serif;
+}
+
