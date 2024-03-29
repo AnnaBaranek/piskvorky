@@ -3,12 +3,12 @@
 }
 
 body {
-    height: 100vh;
+   
     background: linear-gradient(to bottom, #615dad, #ffc8da);
     background-size: cover;
     background-repeat: no-repeat;
     max-width: 80vmin;
-    height: 100%;
+    min-height: 100vh;
     margin: auto;
 }
 
