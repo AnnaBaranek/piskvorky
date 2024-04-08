@@ -113,4 +113,17 @@ button:hover {
 }
  
 
+.board__field--cross {
+    background-image: url('images/cross.svg');
+    background-size: cover; /* Obrázek bude vyplňovat celý prostor tlačítka */
+    background-repeat: no-repeat; /* Zabraňuje opakování obrázku */
+    background-position: center; /* Zarovná obrázek na střed */
+}
+
+.board__field--circle {
+    background-image: url('images/circle.svg');
+    background-size: cover; /* Obrázek bude vyplňovat celý prostor tlačítka */
+    background-repeat: no-repeat; /* Zabraňuje opakování obrázku */
+    background-position: center; /* Zarovná obrázek na střed */
+}
 
