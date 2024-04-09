@@ -113,20 +113,33 @@ button:hover {
 }
  
 
+
+
+
 .board__field--cross {
     background-image: url('images/cross.svg');
     background-size: cover; 
     background-repeat: no-repeat;
     background-position: center;
-    animation: zoomIn 0.3s ease-in-out;
-  
+    animation: grow 0.3s ease-in-out forwards;
+    
 }
+
 
 .board__field--circle {
     background-image: url('images/circle.svg');
     background-size: cover; 
     background-repeat: no-repeat; 
     background-position: center; 
-
+    animation: grow 0.3s ease-in-out forwards;
 }
 
+
+  @keyframes grow {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+}
