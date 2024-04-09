@@ -1,3 +1,4 @@
+
 let currentPlayer = 'circle';
 
 const selectButton = (event) => {
@@ -8,7 +9,7 @@ const selectButton = (event) => {
         currentPlayer = 'cross';
         const playsElement = document.getElementById('plays');
        playsElement.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" version="1.1" viewBox="0 0 6.35 6.35 style="height: 1em;"><g transform="translate(0,-290.65)"><path d="m3.175 290.65c-1.7526 0-3.175 1.4224-3.175 3.175s1.4224 3.175 3.175 3.175 3.175-1.4224 3.175-3.175-1.4224-3.175-3.175-3.175zm0 0.74706c1.3402 0 2.4279 1.0877 2.4279 2.4279s-1.0877 2.4279-2.4279 2.4279-2.4279-1.0877-2.4279-2.4279 1.0877-2.4279 2.4279-2.4279z" stroke-width="10" fill="#fff"/></g></svg>'
-       playsElement.style.height = '1em';
+       playsElement.style.height = '1em'
 
     } else {
         btn.classList.add('board__field--cross');
@@ -30,4 +31,13 @@ document.querySelector('button:nth-child(8)').addEventListener('click', selectBu
 document.querySelector('button:nth-child(9)').addEventListener('click', selectButton)
 document.querySelector('button:nth-child(10)').addEventListener('click', selectButton)
 
+
+const restartLink = document.querySelector('.icon-restart');
+
+restartLink.addEventListener('click', (event) => {
+    const confirmation = confirm('Are you sure?');
+    if (confirmation === false) {
+        event.preventDefault();
+    }
+});
 
