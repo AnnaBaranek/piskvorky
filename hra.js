@@ -34,7 +34,7 @@ document.querySelector('button:nth-child(10)').addEventListener('click', selectB
 const restartLink = document.querySelector('.icon-restart');
 
 restartLink.addEventListener('click', (event) => {
-    const confirmation = confirm('Are you sure?');
+    const confirmation = confirm('Opravdu chceš začít hrát znovu?');
     if (confirmation === false) {
         event.preventDefault();
     }
