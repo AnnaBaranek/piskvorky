@@ -135,11 +135,12 @@ button:hover {
 }
 
 
-  @keyframes grow {
+@Keyframes grow {
     from {
-      transform: scale(0);
+    background-size: 0%;
     }
+    
     to {
-      transform: scale(1);
+    background-size: 100%;
     }
 }
