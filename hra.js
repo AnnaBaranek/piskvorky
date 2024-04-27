@@ -27,33 +27,57 @@ allButtons.forEach((button) => {
   button.addEventListener("click", selectButton);
 });
 
-// obnoveni hodnot v poli po kazdem kliku a overeni, jestli nekdo vyhral
+// obnoveni polozek v poli po kazdem kliku a overeni, jestli nekdo vyhral
 
-const updateField = () => {
-    const herniPole = Array.from(allButtons).map((clickedButton) => {
-      if (clickedButton.classList.contains("board__field--circle")) {
-        return "o";
-      } else if (clickedButton.classList.contains("board__field--cross")) {
-        return "x";
-      } else {
-        return "_";
-      }
-    });
-  
-    console.log(herniPole);
-  
-    const vitez = findWinner(herniPole);
-    if (vitez === 'o' || vitez === 'x') {
-      setTimeout(() => {
-        alert(`Vyhrál hráč ${vitez}.`);
-        location.reload();
-      }, 300); 
+const updateField = async () => {
+  const herniPole = Array.from(allButtons).map((clickedButton) => {
+    if (clickedButton.classList.contains("board__field--circle")) {
+      return "o";
+    } else if (clickedButton.classList.contains("board__field--cross")) {
+      return "x";
+    } else {
+      return "_";
     }
-  };
-  
-  allButtons.forEach((button) => {                      
-    button.addEventListener("click", updateField); 
   });
+
+  console.log(herniPole);
+
+  const vitez = findWinner(herniPole);
+  if (vitez === "o" || vitez === "x") {
+    setTimeout(() => {
+      alert(`Vyhrál hráč ${vitez}.`);
+      location.reload();
+    }, 300);
+  }
+
+  //zjisteni kdo je na tahu a volani API
+  if (currentPlayer === "cross") {
+   
+
+    const response = await fetch(
+      "https://piskvorky.czechitas-podklady.cz/api/suggest-next-move",
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          board: herniPole,
+          player: "x", 
+        }),
+      }
+    );
+
+
+    const data = await response.json();
+    const { x, y } = data.position; // x bude 0 a y bude 1, protože to je jediné volné políčko. x 0 odpovídá prvnímu sloupci a y 1 druhému řádku.
+    const field = allButtons[x + y * 10]; // Najde políčko na příslušné pozici.
+    field.click(); // Simuluje kliknutí. Spustí událost `click` na políčku.
+  }
+};
+allButtons.forEach((button) => {
+  button.addEventListener("click", updateField);
+});
 
 // restart hry
 
